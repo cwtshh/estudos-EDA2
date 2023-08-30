@@ -35,3 +35,58 @@ Algoritmos de Ordenação
             - Separa o vetor
             - Compara os elementos do vetor com um pivô
             - O melhor caso se dá quando o pivô está no meio do vetor
+
+* Linear O(n)
+    - Contagem
+        Ordenação por Contagem
+            Ordenar um vetor de inteiros tal que todo elemento pertença ao intervalo [a, b] <=> [0, C]
+
+            Dado um vetor:
+                [7, 13, 1, 0, 2, 3, 7, 4, 5]    E(0 , 13)
+
+            Cria-se um vetor auxiliar de 14 posições, pois o vetor varia entre 0 e 13, ou seja, 14 elementos.
+                - Percorre o vetor e verifica quais números e quantas vezes eles aparecem no vetor original.
+                    Ex.:
+                        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+                        [1, 1, 1, 1, 1, 1,    2,                    1]
+
+            Agora, gera-se um novo vetor com base na contagem, sobrescrevendo o original.
+                [0, 1, 2, 3, 4, 5, 7, 7, 13]            
+            
+
+            Código:
+                void contagem(int *v, int c, int n) {
+                    # aloca o total de blocos(c + 1), tamanho dos blocos(size_of c) e zera por blocos maiores.
+                    int *aux = calloc((c + 1), size_of c);
+                    
+                    # registra as ocorrencias dos numeros no vetor auxiliar
+                    for(int i = 0; i <= n; i++) {
+                        aux[v[1]]++;
+                    } 
+
+                    int j = 0;
+                    # Sobrescreve o vetor original
+                    for(int i = 0; i <= c; i++) {
+                        while(aux[i] > 0) {
+                            v[j++] = i;
+                            aux[i]--;
+                        }
+                    }
+                }
+
+            Complexidade: O(n + c)
+                - Se c for O(n²)
+                    => O(n + n²) = O(n²);
+
+                - Se c for O(n logn)
+                    => O(n + n logn) = O(n logn)
+
+                - Se c for constante
+                    * verifica-se se a memoria aguenta
+                    * verifica-se se o a quantidade de iterações é aceitavel
+
+                - Resumindo, o problema acontece quando c é muito maior que n
+    - Shell
+    - Radix
+    - Distribuição
+
