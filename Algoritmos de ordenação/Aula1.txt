@@ -1,0 +1,37 @@
+Algoritmos de Ordenação
+
+* Quadraticos O(n^2)
+    - Bolha
+    - Insercão
+        - Consegue identificar vetores ordenados, assim como trechos ordenados.
+        - É estável (Não altera a ordem dos elementos relativos).
+
+    - Seleção
+
+    O que eles comparam?
+        Para cada elemento do vetor, eles comparam cada elemento com todos os outros, ou quase todos os outros.
+
+
+* Linearitcos O(n logn)
+    - Quick Sort
+    - Merge Sort
+    - Heap Sort
+
+    O que eles comparam?
+        Para quick e merge sort:
+            - Divide o vetor em partes e vai dividindo as partes em partes até que seja fácil ordenar.
+            - Divisão e conquista
+
+        O que o Merge Sort faz?
+            Divisão: 
+            - Divide o vetor na metade
+            - Divide os vetores resultantes em duas partes
+            - Faz o passo anterior varias vezes
+
+            Intercala(Merge):
+                - Dada duas metades ordenadas, ele junta um único vetor
+            
+        O que o Quick Sort faz?
+            - Separa o vetor
+            - Compara os elementos do vetor com um pivô
+            - O melhor caso se dá quando o pivô está no meio do vetor
