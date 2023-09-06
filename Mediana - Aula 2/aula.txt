@@ -1,0 +1,45 @@
+Calcular a mediana:
+
+        1 - Ordena  y[0, ..., n - 1] -- O(n logn)
+        2 - Pega o elemento do meio y[m/2] O(1)
+
+        Para obter a mediana realmente precisamos ordenar todo o conjunto?
+
+
+        QuickSort
+
+            -> Problema da separação
+
+                -> Seleciona um elemnto pivô (geralmente o ultimo)
+
+                    * Separa : O(n)
+                        -Fixa o pivô
+                        - Trabalha com o indice j e k
+                        - ele garante que em determinado momento que todos atras de j sao menores que p, e que todos maiores que j sao maiores que pega
+                        - os elementos depois de K nós não sabemos.
+                        - troca a posição j pelo pivô
+                        - pega o ultimo elemento e compara com os outros
+                        -> acha a posicão correta de p
+
+
+                    Aplicando o separa varias vezes
+                        -> encontra o j-esimo menor elemento
+                        -> encontra a posicão correta de qualquer elemento
+
+                -> determina todos os elementos que são maiores que o pivo a direita, e os menores a esquerda.
+
+
+                void quickSelect(int *v, int l, int r, int k) {
+                    if(r <= l) return;
+
+                    int j = separa(v, l r);
+
+                    if(j < k) quickSelect(v, j + 1, r, k);
+
+                    if(j > k) quickSelect(v, l, j - 1, k);
+                }
+
+
+            Tabelas Hash!
+
+
