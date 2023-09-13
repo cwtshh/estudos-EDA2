@@ -1,0 +1,14 @@
+# Aula da Segunda parte
+
+Solução 4 para o problema.
+
+    Suponha que o universo de chaves seja indeterminado
+    Ou que ele seja muito grande não caiba na memoria
+
+    porém n não é tão grande e nao quero busca binaria e nem sequêncial
+
+
+    Fariamos um vetor grande o suficiente de forma que caibam os n elementos e que eu consiga representar todo meu universo de chaves
+
+    Tabela Hash e função de espalhamentos
+    
