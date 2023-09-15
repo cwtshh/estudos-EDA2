@@ -1,0 +1,54 @@
+Suponha um universo de chaves de tamanhoE e considereo problema de busca de ocorrência de chaves na ultima aula.
+    Se R for muito grande de tal forma que a Solução 2 se torne inviável, ou seja, não consigamos alocar mmemória
+auxiliar no passo 1, consideramos a seguinte solução:
+
+Solução 4:
+    1 - Aloque um vetor v de tamanho M.
+
+    2 - Para cada a lido (os n números)
+        v[posição(q)] = 1
+
+    3 - Para cada x, se v[posição(xi)] = 1, "sim" senão "não".
+
+
+    Como era a ssolução 2?
+        ex: R = 1001
+            M = 1001
+            posição(x) = x
+
+
+    Para a solução 4:
+
+        R = 10^9
+        M = 10
+
+          0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+        [  |  |  |  |  |  |  |  |  |  ]
+
+        int posição(x) {
+            return x % M;
+        }
+
+        Entrada:
+            4
+            280
+            1012
+            4187
+
+          0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+        [  1|  | 1| 1|  |  |  | 1|  |  ]
+
+    
+    A tecnica empregada na solução 4 s ecja,a espalhamento (ou Rashing). 
+    A função posição é chamada de função Rash, O vetor v é chamado tabela de dispersão,
+    ou tabela Hash, sendo M o tamanho da tabela Hash e R o tamanho do universo de chames.
+    Sendo M < R. Pode acontecer que hash(x) = hash(y), para x != y.
+    Esse fenomeno se chama colisão.
+
+    Portanto, para utilizarmos essa tecnica, precisamos definir:
+
+    1 - um bom valor de  M.
+
+    2 - Uma função hash.
+
+    3 - Uma estratégia para lidar com as colisões.
