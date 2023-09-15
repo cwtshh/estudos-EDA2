@@ -52,3 +52,43 @@ Solução 4:
     2 - Uma função hash.
 
     3 - Uma estratégia para lidar com as colisões.
+
+
+    O que é uma boa função hash?
+
+    i - deve ter uma boa definição, sua função sempre deve retornar valor entre 0 e M-1
+
+    ii - sua função deve espalhar bem suas chaves pelo vetor
+
+    iii - uma função hash será boa quando M for primo
+
+    IV - Lidar com colis~e
+        Para cada possivel colisão, ao inves de sobrescrever
+        Insiro uma lista encadeada
+
+        armazena um struct com um "um" e a chaves
+
+        Outra solução, procura um fulano com a direita livre
+
+    Resumindo:
+        A escolha de M e da função hash estão relacionadas, já que a função hash depende de M. 
+        Uma boa escolha pode estar ligada ao cunjunto de chaves em questão, mas no caso geral
+        uma boa escolha costuma ser:
+
+            1 - M pprimo SUFICIENTEMENTE grande 
+                Expreimentação, quanto maior, menos colisôes.
+                Primos de Merssene
+
+            2 - A função Modular
+
+                int hash(x) {
+                    return x % M;
+                }
+
+            3 - Há duas estratégias: hashing com encadeamento e sondagem linear.
+
+            Sinônimos:
+                Hash com encadeamento;
+                Encadeamento separado;
+                Sendagem linear;
+                Encadeamento aberto;
