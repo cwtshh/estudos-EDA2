@@ -10,7 +10,7 @@ typedef struct {
     int m;
 }hash;
 
-int insere(Item chave);
+void insere(Item chave);
 
 int remove(Item chave);
 
