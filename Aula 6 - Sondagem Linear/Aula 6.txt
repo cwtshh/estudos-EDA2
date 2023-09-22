@@ -1,0 +1,46 @@
+2 - Sondagem Linear
+
+    M = 11;
+
+      0   1  2  3  4  5  6  7  8   9   10
+    [ 22, 33, 31,  ,  ,  ,  ,  , 8, 20, 30]
+
+    int hash(int chave) {
+        return key % M;
+    }
+
+    inserir(8);
+
+    inserir(20);
+
+    inserir(22);
+
+    inserir(33);
+
+    Deu colisão!
+
+    -> Devemos procurar uma casa vazia... pode ser qualquer busca, desde que seja sistematica.
+
+    Vou inserir na casa da direita
+
+    inserir(30); 
+
+    inserir(31); -> precisa dar a volta na tabela já que eventualmente não existirão mais casas.
+
+    * Para fazer buscas
+
+        busca(41);
+
+        Posicâo 8 já esta ocupada. temos que acessar a posicao que ele deveria estar, se ele não estiver lá, precisamos
+        aplicar a regra de inserção até encontrar a chave que estamos procurando.
+
+        Procura-se a chave até encontrar a primeira posição vazia, encontrando a primeira vazia sabe-se que o elemento 
+        não está presente na lista.
+
+        Nessa estratégia N > M;
+
+    - Para implementar, precisamos escolher um símbolo para vazio. Caso contrário, se tivessemos um valor vazio na lista seguido de,
+    por exemplo, o valor que procuramos, pelas regras ditadas anteriormente, parariamos antes mesmo de chegar em nosso valor buscado.
+
+    - E se a tabela encher?
+    
