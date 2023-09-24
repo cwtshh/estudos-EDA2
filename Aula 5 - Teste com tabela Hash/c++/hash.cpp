@@ -143,7 +143,9 @@ int main() {
     insert(31);
     insert(41);
 
-    getCollisions(0);
+    insert(43);
+
+    getCollisions(1);
 
     search(43);
 
