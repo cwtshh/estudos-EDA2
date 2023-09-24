@@ -2,6 +2,7 @@
 
 using namespace std;
 
+
 class Cell {
     public:
         int key;
@@ -40,6 +41,7 @@ void insert(int key) {
 
     /* Se a posiçao apontar para NULL, sera criado uma nova casa para esta celula */
     if(t.head[position].next == NULL) {
+        newCell->next = NULL;
         t.head[position].next = newCell;
 
     } else {
