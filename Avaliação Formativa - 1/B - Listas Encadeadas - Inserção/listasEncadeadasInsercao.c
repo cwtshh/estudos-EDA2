@@ -7,8 +7,13 @@ typedef struct celula {
 } celula;
 
 void insere_inicio(celula *le, int x) {
+    /* cria nova celula */
     celula *novo = malloc(sizeof(celula));
+
+    /* atribui o valor de x a celula */
     novo->dado = x;
+
+    /* aponta o prox da nova celula para o prox da celula le */
     novo->prox = le;
 }
 
