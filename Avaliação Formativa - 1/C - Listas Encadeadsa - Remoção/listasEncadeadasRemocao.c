@@ -9,7 +9,7 @@ typedef struct celula {
 }celula;
 
 int remove_depois(celula *p) {
-    
+
 }
 
 int main() {
