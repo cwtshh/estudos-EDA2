@@ -19,7 +19,7 @@ int hashKey(int key) {
 
 void createTable(int key) {
     t.size = key;
-    t.head = (struct Cell*) malloc(sizeof(struct Cell) * key);
+    t.head = (struct Cell*) calloc(key, sizeof(struct Cell));
 }
 
 void insert(int key) {

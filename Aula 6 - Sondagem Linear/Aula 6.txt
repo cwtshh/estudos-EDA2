@@ -43,4 +43,7 @@
     por exemplo, o valor que procuramos, pelas regras ditadas anteriormente, parariamos antes mesmo de chegar em nosso valor buscado.
 
     - E se a tabela encher?
-    
+
+        - se minha tabela hash está próxima de encher, não temos uma boa tabela hash.
+        - Desta forma eu sempre tenho q ter um tamanho de tabela hash maior q o número de chaves,
+        caso contrario, não faz sentido ter Sondagem Linear. Seria uma busca linear O(n) de qualquer maneira.
