@@ -4,35 +4,23 @@
 typedef struct celula {
     int dado;
     struct celula *prox;
-}celula;
+} celula;
 
-void imprime(celula *le) {
-    celula *p;
-    p = le->prox;
 
-    if(le->prox == NULL) {
-        printf("NULL");
-        return;
+void imprime (celula *le) {
+    celula *aux = le;
+
+    while(aux->prox != NULL) {
+        printf("%d ", aux->prox->dado);
+        aux = aux->prox;
     }
-
-    while(p) {
-        printf("%d -> ", p->dado);
-        p = p->prox;
-    }
-    printf("NULL");
 }
 
-void imprime_rec(celula *le) {
-    if(le->prox ==  NULL) {
-        printf("NULL");
-        return;
-    }
 
-    if(le->prox == NULL) {
-        printf("NULL");
-        return;
-    }
+int main() {
 
-    printf("%d -> ", le->prox->dado);
-    imprime_rec(le->prox);
+    celula *le = (celula *) malloc()
+
+
+
 }

@@ -27,7 +27,7 @@ int THremove (TH *h, int ch) {
     int position = ch % h->M;
 
     celula *pAnt, *pPost;
-    pAnt = h->tb[position].prox;
+    pAnt = &h->tb[position];
 
     while(pAnt->prox->dado != ch) {
         if(pAnt->prox == NULL) return -1;
@@ -46,6 +46,8 @@ int THbusca (TH *h, int ch) {
     int position = ch % h->M;
 
     celula *p = h->tb[position].prox;
+
+    
 
     while(p->dado != ch) {
         if(p->prox == NULL) return 0;

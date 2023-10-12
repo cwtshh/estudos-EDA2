@@ -1,0 +1,38 @@
+Árvore Binária
+
+É uma árvore cujos nós possuiem no máximo 2.
+
+                O               Altura da árvore: 4             Nível 0
+---------------------------------------------------
+           /          \         Se a altura for G,              Nível 1
+        O               O       a árvore possui h mais níveis 0, 1, 2, 3,..., h com, no máximo. 2^k nós no nível K. No minimo K + 1 nos.
+---------------------------------------------------
+     /   \            /     \                                   Nível 3
+    O     O          O       O
+
+    Definição recursiva de uma arvore e umm conjunto de nós tal que um nó é a raiz e os demais se dividem
+em subarvores a esquerda da raiz e subavores a direita da raiz.
+
+
+                                O               raiz
+                ---------------------------------------------------
+subarvore esquerda         /          \        subarvore direita
+                        O               O       
+                ---------------------------------------------------
+                     /   \            /     \
+                    O     O          O       O
+
+
+implementação
+
+typedef struct No {
+    int dado;
+    struct No *esq, *dir;
+    struct No *pai; // Opcional
+} No;
+
+A arvore é definida pela raiz.
+
+
+
+
