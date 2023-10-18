@@ -82,3 +82,41 @@ void largura(No *raiz) {
 4, 2, 1, 3, 7, 18, 5, 9, 8, 13, 6
 
 
+
+# Arvore Binária de Busca (ABB)
+
+Uma ABB é uma arvore binária tal que, para qualquer nó v:
+
+    v->esq->dado < v->dado < v->dir->dado
+
+                    r                   * r < e, Ve E Te
+                /       \               * r > d, Vd E Td
+            Te              Td
+
+
+1 - Busca
+
+No *busca(No *raiz, int x) {
+    while(raiz != NULL && raiz->dado != x) {
+        if(x < raiz->dado) raiz = raiz->esq;
+        else raiz = raiz->dir;
+    }
+    return raiz;
+}
+
+Complexidade:
+
+                    5
+                4
+            3
+        2
+    1
+
+    Percurso desbalanceado => O(n)
+
+    Em condiçôes balanceadas => O(log(n))
+
+    Ou seja,
+    Pior caso = O(n)
+    Melhor caso = O(log(n));
+
