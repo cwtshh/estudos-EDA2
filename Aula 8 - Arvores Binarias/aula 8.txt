@@ -1,0 +1,84 @@
+Percursos em Árvores Binárias
+
+Há dois tipos de percursos em arvores binárias, em profundidade e em largura.
+
+# Percuros em profundidade
+
+Lógica:
+    Explorar um galho até as folhas. Há tres tipos de percurso em profundidade.
+
+    1 - Pré ordem:
+        raiz-esquerda-direita.
+
+    2 - Em ordem:
+        esquerda-raiz-direta
+
+    3 - Pós ordem:
+        esquerda-direita-raiz
+
+    Exemplo:
+                                
+                                    4
+                        2                           1
+                3           7               18              5
+            9       8           13                      6
+
+    Pré Ordem:
+        4, 2, 3, 9, 8, 7, 13
+        1, 18, 5, 6
+
+    Em Ordem:
+        9, 3, 8, 2, 7, 13, 4, 18, 
+        1, 6, 5
+
+    Pós Ordem:
+        9, 8, 3, 13, 7, 2, 
+        18, 6, 5, 1, 4
+
+
+    Implementacao para Pre Ordem:
+        printf("%d", raiz->dado);
+
+        preordem(raiz->esq);
+        preordem(raiz->dir);
+
+    Implementacao para Em Ordem:
+        emOrdem(raiz->esq);
+        printf("%d", raiz->dado);
+        emOrdem(raiz->dir);
+
+    Implementacao para Pos Ordem:
+        posOrdem(raiz->esq);
+        posOrdem(raiz->dir);
+        printf("%d", raiz->dado);
+
+
+    
+# Processos em largura
+
+Considerando a arvore Exemplo acima e uma fila:
+
+    Fila: 4, 2, 1, 3, 7, 18, 5, 9, 8, 13, 6
+
+    Saida: 4, 2, 1, 3, 7, 18, 5, 9, 8, 13, 6
+
+Implementacao:
+
+void largura(No *raiz) {
+    enfileira(raiz);
+
+    while(!file_vazia()) {
+        No *r = desenfileira();
+        print("%d", r->dado);
+        
+        if(r->esq != NULL) enfileira(r->esq);
+
+        if(r->dir != NULL) enfileira(r->dir);
+    }
+}
+
+
+4, 2, 1, 3, 7, 18, 5, 9, 8, 13, 6
+4, 2, 1, 3, 7, 18, 5, 9, 8, 13, 6
+
+
