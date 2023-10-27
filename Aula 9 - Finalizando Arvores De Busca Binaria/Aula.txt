@@ -1,0 +1,95 @@
+1 - Inserção
+
+    Para inserir o 0:
+                        7
+                3               15
+        1           6       10          18
+    "0"     2              9    13
+
+    "Criei uma nova arvore, sobe na recursao, a esqueda desse no vai ser minha nova arvore, a esquerda do anterior
+    vai ser a que já existia, e vai subindo redefinindo todas as raizes."
+
+    No *insere(No *raiz, int ch) {
+        if(raiz == NULL) {
+            No *novo = (No *) malloc(sizeof(No));
+            novo->esq = NULL;
+            novo->dir = NULL;
+            novo->dado = ch;
+
+            return novo;
+        }
+
+        if(ch < raiz->dado) {
+            raiz->esq = insere(raiz->esq, ch);
+        } else {
+            raiz->dir = insere(raiz->dir, ch);
+        }
+
+        return raiz;
+    }
+
+    OBS: ele percorre a arvore procurando a posição NULL e volta redefinindo as raizes,  
+         isso nao altera a ordem dos nós, porém é uma boa pratica para garantir que tudo ocorreu bem.
+
+2 - Remoção
+
+    -> Se for filha, basta remover e redefinir esq ou dir do pai.
+    -> Se for um nó com subarvore esquerda (direita) NULL, basta remover redefinir esq/dir do pai
+       com a subarvore direita (esquerda).
+    -> Se for um nó com subarvores esquerda ae direita nâo NULL, remove o menor a direita (ou maior a esquerda). 
+    
+    No *remove(No *raiz, int ch) {
+        if(raiz == NULL) return NULL;
+
+        if(ch < raiz->dado)
+            raiz->esq = remove(raiz->esq, ch);
+        else if(ch > raiz->dado)
+            raiz->dir = remove(raiz->dir, ch);
+        else {
+            if(raiz->esq == NULL) return raiz->direita;
+
+            else if(raiz->dir == NULL) return raiz->esq;
+
+            else removeSucessor(raiz);
+
+            return raiz;
+        }
+    }
+
+    No *remove(No *raiz, int ch) {
+        if(raiz == NULL) return NULL;
+
+        if(ch < raiz->dado)
+            raiz->esq = remove(raiz->esq, ch);
+        else if(ch > raiz->dado)
+            raiz->dir = remove(raiz->dir, ch);
+        else {
+            if(raiz->esq == NULL) return raiz->direita;
+
+            else if(raiz->dir == NULL) return raiz->esq;
+
+            else {
+                int novaCh;
+                raiz->dir = removeSucessor(raiz, &novaChave);
+                raiz->dado = novaCh;
+            }
+
+            return raiz;
+        }
+    }
+
+    No * removeSucessor(No *raiz, int *ch) {
+        if(raiz->esq == NULL) {
+            *ch = raiz->dado;
+            return raiz->dir;
+        }
+
+        raiz->esq = removeSucessor(raiz->esq, ch);
+        return raiz;
+    }
+
+
+    !   Temos que tomar cuidado para redirecionar os ponteiros  !
+
+
+

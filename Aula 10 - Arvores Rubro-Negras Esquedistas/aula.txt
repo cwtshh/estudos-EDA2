@@ -1,0 +1,36 @@
+# Arvores Rubro-Negras Esquerdistas
+
+São árvores binárias de busca que seguem as seguintes regras:
+
+    1- Todo nó da arvore é vermelho ou preto.
+
+    2 - A raiz é preta.
+
+    3 - se um nó é vermelho então seus filhos são pretos.
+
+    4 - Em cada nó, o caminho para qualquer uma de um suas filhas possui a quantidade
+        nós pretos.
+        -> O proprio nó não conta.
+        -> O filho vermelho é sempre o esquerdo.
+
+    5 - As folhas são NULL e tem a cor preta.
+        (Foto no celular)
+
+# Operações de correção
+
+1 - Rotação:
+    (Foto no celular)
+
+    Rotação para direita.
+    
+    O y vira raiz e x vira filho direito
+    O y assume a mesma cor que o x tinha.
+
+
+    Rotação para esquerda é o contrario de para a direita, ou seja,
+    sai da arvore que acabamos de rotacionar e volta ao estado original.
+
+
+2 - Elevação da cor
+
+
