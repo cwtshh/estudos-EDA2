@@ -1,0 +1,44 @@
+Fila de Prioridades
+
+Uma fila de prioridades é uma estrutura de dados que possui duas operações.
+
+-> Inserção.
+-> Remoção do elemento de maior prioridade.
+
+Ex:
+    > Filas: maior prioridade para primeiro elemento que entrou.
+    > Pilhas: maior prioridade para o ultimo elemento que entrou.
+
+
+    Considere que dejesamos remover o maior elemento do conjunto. Para fazer isso,
+usamos uma estrutura chamada arvore hierarquica ou max-heap.
+
+    Um max-heap é uma arvore binária quase completa no qual a raiz de qualquer subarvore
+possui chave maior que seus filhos.
+
+    Uma arvore binaria é dita quase completa se todos os noveos estao cheios, com exeção do
+ultimo, e os nós do ultimo nivel estao mais a esquerda.
+
+Ex:
+
+                        10
+                9               4
+        7           8        3      2
+    6     4       5   1
+
+Implementacao
+
+(Foto no celular)
+
+Nesta implementacao , considere o nó v[i]. Quem é?
+
+-> Pai de v[i]? v[(i - 1)/2]
+    -> i < 0 ou (i - 2)/2 > 0
+
+-> Filho esquerdo de v[i]? v[i * 2 + 1]
+    -> i * 2 + 1 <= n
+
+-> Filho direito de v[i]? v[i * 2 + 2]
+    -> i * 2 + 2 <= n
+
+Onde n é a quantidade de nós no heap.
