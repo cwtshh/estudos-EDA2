@@ -42,3 +42,84 @@ Nesta implementacao , considere o nó v[i]. Quem é?
     -> i * 2 + 2 <= n
 
 Onde n é a quantidade de nós no heap.
+
+typedef struct {
+    int *v;
+    int n, tam;
+} FP;
+
+FP *cria_heap(int tam) {
+    FP *fp = malloc(sizeof(FP));
+    fp->v = malloc(tam * sizeof(int));
+    fp->tam = tam;
+    fp->n = 0;
+
+    return fp;
+}
+
+Inserção
+
+(Foto no cel)
+
+Coloca no final do vetor e conserva o heap (sobe no heap)
+
+verifica se o no e maior que o pai, em caso verdadeiro, sobe o no;
+
+void insere(FP *v, int x) {
+    fp->x[fp->n] = x;
+    fp->n++;
+
+    sobe_no_heap(fp, fp->n - 1);
+}
+
+void sobe_no_heap(FP *fp, int i) {
+    if(i < 0 && fp->v[pai(i)] < fp->v[i]) {
+        troca(fp->v, pai(i), i);
+        sobe_no_heap(fp, pai(i));
+    }
+}
+
+int pai(int i) {
+    return (1 - 1)/2;
+}
+
+void troca(int *v, int i, int j) {
+    int tmp = v[i];
+    v[i] = v[j];
+    v[j] = temp;
+}
+
+Ou usando macro
+#define pai(i) (i - 1)/2
+
+Remoção:
+
+(Foto no celular)
+
+int remove(FP *fp) {
+    troca(fp->v, 0, fp->n - 1);
+    fp->n--;
+    desce_no_heap(fp, 0);
+    return fp->v[fp->n];
+}
+
+void desce_no_heap(FP *fp, int i) {
+    int maior_filho, esq = 2* i = 1, dir = esq + 1;
+
+    if(esq < fp->n) {
+        menor_filho = esq;
+
+        if(dir < n && fp->v[dir] > fp->v[esq]) {
+            maior_filho = dir;
+        }
+
+        if(fp->v[i] < fp->v[maior_filho]) {
+            troca(fp->v, i, menor_filho);
+            desce_no_heap(fp, maior_filho);
+        }
+    }
+}
+
+int mf(FP *fp, int i) {
+
+}

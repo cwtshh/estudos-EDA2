@@ -1,0 +1,57 @@
+typedef struct FP { 
+    int *v;
+    int n, tam;
+} FP;
+
+void heapSort(int *v, int n) {
+    FP *fp = cria_heap(n);
+    for(int i = 0; i < n; i++) {
+        insere(fp, v[i]);       -> O(log n)
+    }
+    
+    for(int i = n - 1; i >= 0; i--) {
+        v[i] = remove(fp);      -> O(log n)
+    }
+}
+
+complexidade = 2 nlog n = O(nlog n)
+
+Melhorias:
+
+    1- Complexidade: insere e remove custam, na verdade, O(log i)
+
+    2- Espaço adicional: usaer v como heap
+
+
+Transformando um vetor num heap
+
+| 4 | 8 | 2 | 7 | 6 | 3 | 5 | 1 | 9 | 10 |
+
+Troca a raiz com o maior dos filhos dela
+void desce_no_heap(FP *fp, int i) {
+    int esq = 2 * i + 1; dir = esq + 1, maior_filho;
+
+    if(esq < fp->n) {
+        maior_filho = esq;
+        if(dir < fp->n && fp->v[dir] > fp->v[esq]) {
+            maior_filho = dir;
+        }
+
+        if(fp->v[i]; fp->v[maior_filho]) {
+            troca(fp->v, i, maior_filho);
+            desce_no_heap(fp, maior_filho);
+        }
+
+    }
+}
+
+void heapsort(int *v, int n) {
+    for(int i = n/2; i >= 0; i--) 
+        desce_no_heap(v, n, i); O(log n)
+
+    while(n > 0) { O(log n)
+        remove(v, n); // troca a raiz com v[n - 1] e aplica desce_no_heapna raiz v[0]
+        n--;
+    }
+    
+} O(nlog n)
