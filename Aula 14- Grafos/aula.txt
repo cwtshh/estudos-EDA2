@@ -1,0 +1,51 @@
+# Grafos
+
+É uma estrutura de dados usada para representar relacionamentos entre objetos.
+
+Ex: Representar pessoas numa rede social.
+(Foto no celular)
+
+Matemáticamente, um grafo é um par ordenado de (V, E) em que:
+    - V é o conjunto de vertices;
+    - E é o conjunto de arestas;
+    - Uma aresta que une dois vetices a u e v é representada por {u, v};
+    - Para toda aresta {u, v}, u != v;
+    - Existe uma unica aresta {u, v} (e de pertencente, eu acho) E;
+
+    Ex.: V = {1, 2, 3, 4, 5},
+         E = {{1,2}, {1, 3}, {1, 4}, {1, 5}, ..., {5, 4}, {5, 5}}
+
+Dizemos que dois vertices são adjacentes há uma aresta unindo-os.
+
+Há duas formas de implementar grafos, matrizes de adjacencias e listas de
+adjacencias.
+
+Matriz de adjacencias
+
+(Foto no celular)
+
+- Rápida, porém consome muita memória (|V|^2)
+- É simétrica
+- É esparsa (tem uma quantidade minima de 1)
+
+-> Uma matriz ela é esparsa se sua densidade for O(n). Compensa usar alguma
+especializada para katr9zes espesas se a densidade ~~ 30% (0,3).
+
+Implementação
+
+typedef struct {
+    int **adj; // matriz de adjacentes
+    int n; // qtd de vertices
+} grafo;
+
+grafo *cria_grafo(int n) {
+    grafo *g = malloc(sizeof(grafo));
+    g->n = n;
+    g->adj = malloc(n * sizeof(int *)); // aloca o vetor de linhas, como é um vetor de ponteiros aloca int*
+
+    for(int i = 0; i < n; i ++) {
+        g->adj[i] = malloc(n *sizeof(int)); // aloca um novo vetor que representa as linhas da matriz
+    }
+
+    return g; // adj[i][j] uma matriz!
+}

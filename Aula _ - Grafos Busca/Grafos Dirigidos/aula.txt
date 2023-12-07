@@ -1,0 +1,92 @@
+Exemplo:
+    - Seus seguidores nâo necessariamente se seguem
+    - Uma cidade deve ser representada por um grafo dirigido, já nem todas as ruas sao de 1
+    mâo só.
+
+
+Busca em largura
+    - Geralmente mas lento, mas encontra o melhor caminho
+    - É boa para encontrar o menor caminho.
+    Ex.:
+
+                0 - 4 - 8 - 17
+                | /     | X |
+                1   5 - 9   13          
+                |     \   /
+                2 - 6   10 - 14
+                |   |  \      |
+                3 - 7 - 11   15    
+
+    Visita um vertice marca como visitado - Visitado (Já existe um caminho entre o vertice de origem e esses vertices)
+    Fila:
+        1, 4, 2, 8, 3, 6, 9, 17, 13, 7, 11, 5, 10, 14, 15
+
+        ações:
+            - Desenfileira 1.
+                - 2 nao foi visitado.
+                - marca como visitado.
+                - 4 já foi visitado, nao precisa-se traçar caminho.
+                - enfileira o 2.
+
+            - Desenfileira 4.
+                - 1 jã foi visitado
+                - traça caminho entre 4 e 8
+                - marca como visitado e enfileira
+
+            - Desenfileira 2.
+                - 1 ja foi visitado
+                - 3 nao, marca caminho e enfileira
+                - 6 nao, marca caminho e enfileira
+
+            - Desenfileira 3.
+                ...
+
+            - Desenfileira 8.
+                - nenhum vizinho foi visitado, enfileira todos.
+
+            - Desenfileira 6
+                - 3 já foi visitado
+                - enfileira 7
+                - enfileira 11
+            
+            - Desenfileira 9
+                - enfileira 5 e 10 e marca como visitado
+
+            - Desenfileira 12
+                - Todos ja foram visitados
+
+            - Desenfileira 13
+                - 8 ja foi, 10 ja foi, 12 ja foi mas 14 nao
+                - enfileira 14 marca como visitado
+
+            - Desenfileira 7
+                - Todos ja visitados
+
+            - Desenfileira 11
+                - Todos ja visitados
+
+            - Desenfileira 5
+                - visitados
+
+            - Dsenfileira o 10
+                - enfileira o 14
+
+            - Desenfileira 14,
+                - Enfileira o 15
+
+            - Desenfileira o 15
+                - ja foi
+
+            Arvore gerada no celular
+
+Busca em profundidade
+    - Geralmente é mais rapido, mas nem sempre encontra um caminho e nem o melhor caminho.
+    - Geralmente busca o maior caminho
+    - So marca como visitado depois de desempilhar
+    - E boa pra encontrar possibilidades de caminho.
+    Mesmo grafo
+
+
+
+    Pilha: 
+
